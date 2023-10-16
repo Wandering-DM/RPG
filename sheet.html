@@ -1,0 +1,424 @@
+<main>
+  <section class="header">
+  </section>
+
+  <section class="common">
+    <label>Char name: <input name="attr_character_name" type="text"></label>
+    <label>Pronouns: <input name="attr_gender" list="pronouns" type="text" ></label>
+    <label>Concept: <input name="attr_con" type="text" ></label>
+    <div class="f-col">
+      <button class="sheet-blank-button" type="roll" name="roll_d10" value="&{template:default} {{name=D10 Roll (@{character_name}) }} {{If this is an Attribute die, add it to your Skill Roll}} {{[[1d10]]}} {{If this is a Survival Die, swap the result with a die from your Skill Roll}}">
+      <img src="https://github.com/Wandering-DM/RPG/blob/main/d10%20silhouette%20black.png?raw=true" style="width:220px;height:160px;margin-top:-40px;margin-left:40px;"/>
+    </button>
+    </div>
+    </section>
+
+<!-- STATS -->
+
+  <section class="attri f-col nowrap">
+    <h2>Attributes</h2>
+    <div class="f-row nowrap">
+      <label>Agility</label>
+  <input type="checkbox" name="attr_agi1" unchecked>
+	<input type="checkbox" name="attr_agi2" unchecked>
+	<input type="checkbox" name="attr_agi3" unchecked>
+	<input type="checkbox" name="attr_agi4" unchecked>
+	<input type="checkbox" name="attr_agi5" unchecked>
+	<p>/</p>
+	<input type="number" name="attr_agi_total" value="5">
+    </div>
+
+    <div class="f-row nowrap">
+      <label>Health</label>
+  <input type="checkbox" name="attr_hlt1" unchecked>
+	<input type="checkbox" name="attr_hlt2" unchecked>
+	<input type="checkbox" name="attr_hlt3" unchecked>
+	<input type="checkbox" name="attr_hlt4" unchecked>
+	<input type="checkbox" name="attr_hlt5" unchecked>
+	<p>/</p>
+	<input type="number" name="attr_hlt_total" value="5">
+    </div>
+    
+    <div class="f-row nowrap">
+      <label>Logic</label>
+  <input type="checkbox" name="attr_log1" unchecked>
+	<input type="checkbox" name="attr_log2" unchecked>
+	<input type="checkbox" name="attr_log3" unchecked>
+	<input type="checkbox" name="attr_log4" unchecked>
+	<input type="checkbox" name="attr_log5" unchecked>
+	<p>/</p>
+	<input type="number" name="attr_log_total" value="5">
+    </div>
+    
+    <div class="f-row nowrap">
+      <label>Spirit</label>
+  <input type="checkbox" name="attr_spi1" unchecked>
+	<input type="checkbox" name="attr_spi2" unchecked>
+	<input type="checkbox" name="attr_spi3" unchecked>
+	<input type="checkbox" name="attr_spi4" unchecked>
+	<input type="checkbox" name="attr_spi5" unchecked>
+	<p>/</p>
+	<input type="number" name="attr_spi_total" value="5">
+    </div>
+
+    <div class="f-row nowrap">
+      <label>Wits</label>
+  <input type="checkbox" name="attr_wit1" unchecked>
+	<input type="checkbox" name="attr_wit2" unchecked>
+	<input type="checkbox" name="attr_wit3" unchecked>
+	<input type="checkbox" name="attr_wit4" unchecked>
+	<input type="checkbox" name="attr_wit5" unchecked>
+	<p>/</p>
+	<input type="number" name="attr_wit_total" value="5">
+    </div>
+    
+	</section>
+	</div>
+
+<!-- SKILLS -->
+
+  <section class="skill f-col nowrap">
+    <h2>Skills</h2>
+
+    <div class="f-row nowrap">
+        <label>Acting</label>
+      <select name="attr_act" width="50px">
+          <option value="18" selected>None</option>
+          <option value="15">Amateur</option>
+          <option value="11">Professional</option>
+          <option value="6">Expert</option>
+      </select>
+      <button type="roll" value="&{template:default} {{name=Acting Roll (@{character_name}) }} {{You Need}} {{@{act} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{act}]]}}" name="roll_act">
+      </button>
+  </div>
+
+  <div class="f-row nowrap">
+    <label>Aim</label>
+    <select name="attr_aim">
+        <option value="18" selected>None</option>
+        <option value="15">Amateur</option>
+        <option value="11">Professional</option>
+        <option value="6">Expert</option>
+    </select>
+    <button type="roll" value="&{template:default} {{name=Aim Roll (@{character_name}) }} {{You Need}} {{@{aim} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{aim}]]}}" name="roll_aim">
+    </button>
+    </div>
+
+<div class="f-row nowrap">
+  <label>Athletics</label>
+  <select name="attr_athletic">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Athletics Roll (@{character_name}) }} {{You Need}} {{@{atheltic} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{athletic}]]}}" name="roll_ath"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Bluff</label>
+  <select name="attr_bluff">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Bluff Roll (@{character_name}) }} {{You Need}} {{@{bluff} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{bluff}]]}}" name="roll_bluff"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Charisma</label>
+  <select name="attr_rizz">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Charisma Roll (@{character_name}) }} {{You Need}} {{@{rizz} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{rizz}]]}}" name="roll_rizz"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Concentration</label>
+  <select name="attr_focus">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Concentration Roll (@{character_name}) }} {{You Need}} {{@{focus} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{focus}]]}}" name="roll_focus"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Crafting</label>
+  <select name="attr_craft">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Crafting Roll (@{character_name}) }} {{You Need}} {{@{craft} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{craft}]]}}" name="roll_craft"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Drive</label>
+  <select name="attr_drive">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Driving Roll (@{character_name}) }} {{You Need}} {{@{drive} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{drive}]]}}" name="roll_drive"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Electronics</label>
+  <select name="attr_elect">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Electronics Roll (@{character_name}) }} {{You Need}} {{@{elect} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{elect}]]}}" name="roll_elect"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Escape</label>
+  <select name="attr_escape">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Escape Roll (@{character_name}) }} {{You Need}} {{@{escape} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{escape}]]}}" name="roll_escape"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Fighting</label>
+  <select name="attr_fight">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Fighting Roll (@{character_name}) }} {{You Need}} {{@{fight} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{fight}]]}}" name="roll_fight"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>First Aid</label>
+  <select name="attr_medic">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=First Aid Roll (@{character_name}) }} {{You Need}} {{@{medic} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{medic}]]}}" name="roll_medic"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Hide</label>
+  <select name="attr_hide">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Hide Roll (@{character_name}) }} {{You Need}} {{@{hide} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{hide}]]}}" name="roll_hide"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Intimidate</label>
+  <select name="attr_intim">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Intimidate Roll (@{character_name}) }} {{You Need}} {{@{intim} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{intim}]]}}" name="roll_intim"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Investigate</label>
+  <select name="attr_invest">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Investigate Roll (@{character_name}) }} {{You Need}} {{@{invest} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{invest}]]}}" name="roll_invest"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Knowledge</label>
+  <select name="attr_know">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Knowledge Roll (@{character_name}) }} {{You Need}} {{@{know} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{know}]]}}" name="roll_know"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Spot/Listen</label>
+  <select name="attr_spot">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Spot/Listen Roll (@{character_name}) }} {{You Need}} {{@{spot} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{spot}]]}}" name="roll_spot"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Open Locks</label>
+  <select name="attr_lock">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Open Locks Roll (@{character_name}) }} {{You Need}} {{@{lock} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{lock}]]}}" name="roll_lock"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Repairs</label>
+  <select name="attr_repairs">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Repairs Roll (@{character_name}) }} {{You Need}} {{@{repairs} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{repairs}]]}}" name="roll_repairs"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Research</label>
+  <select name="attr_Research">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Research Roll (@{character_name}) }} {{You Need}} {{@{Research} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{Research}]]}}" name="roll_research"></button>
+</div>
+
+<div class="f-row nowrap">
+  <label>Wild. Survival</label>
+  <select name="attr_surv">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=Wilderness Survival Roll (@{character_name}) }} {{You Need}} {{@{surv} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{surv}]]}}" name="roll_surv"></button>
+</div>
+
+<div class="f-row nowrap">
+  <input type="text" name="attr_skill" value="None" size="10px">
+  <select name="attr_extra">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=@{skill} Roll (@{character_name}) }} {{You Need}} {{@{extra} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{extra}]]}}" name="roll_extra"></button>
+</div>
+
+<div class="f-row nowrap">
+  <input type="text" name="attr_skill2" value="None" size="10px">
+  <select name="attr_extra2">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=@{skill2} Roll (@{character_name}) }} {{You Need}} {{@{extra2} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{extra2}]]}}" name="roll_extra2"></button>
+</div>
+
+<div class="f-row nowrap">
+  <input type="text" name="attr_skill3" value="None" size="10px">
+  <select name="attr_extra3">
+      <option value="18" selected>None</option>
+      <option value="15">Amateur</option>
+      <option value="11">Professional</option>
+      <option value="6">Expert</option>
+  </select>
+  <button type="roll" value="&{template:default} {{name=@{skill3} Roll (@{character_name}) }} {{You Need}} {{@{extra3} or Higher}} {{You Rolled}}={{[[(?{Number of Dice|2}d10kh2)>@{extra3}]]}}" name="roll_extra3"></button>
+</div>
+
+</section>
+
+  <!-- PENTAGRAM -->
+
+  <section class= "pentagram f-col nowrap">
+
+
+    <div class="f-col">
+      <h2>Pentagram</h2>
+          <h4>Hope</h4>
+        <div class="f-row">
+            <textarea name="attr_hope" placeholder="What gives you Hope?"></textarea>
+            </div>
+
+
+            <div class="f-center">
+              <img src="https://github.com/Wandering-DM/RPG/blob/main/invisible.png?raw=true" style="width:20px;height:10px;"/>
+            </div>
+
+      <div class="f-penta">
+        <h4>Desire</h4>
+        <h4>Fear</h4>
+      </div>
+      <div class="f-row">
+        <textarea name="attr_desire" placeholder="What do you Desire?"></textarea>
+        <textarea name="attr_fear" placeholder="What do you Fear?"></textarea>
+    </div>
+    <div class="f-center">
+      <img src="https://github.com/Wandering-DM/RPG/blob/main/invisible.png?raw=true" style="width:20px;height:10px;"/>
+    </div>
+
+        <div class="f-penta">
+          <h4>Regret</h4>
+          <h4>Shame</h4>
+        </div>
+          <div class="f-row">
+            <textarea name="attr_regret" placeholder="What do you Regret?"></textarea>
+            <textarea name="attr_shame" placeholder="What brings you Shame?"></textarea>
+        </div>
+  </section>
+
+  <!-- INVENTORY -->
+
+  <section class="inv">
+    <h2>Inventory</h2>
+    <textarea name="attr_inventory"></textarea>
+  </section>
+
+  <!-- DESCRIPTION -->
+
+  <section class="misc">
+    <h2>Notes</h2>
+    <textarea name="attr_description"></textarea>
+  </section>
+
+  <footer class="f-col f-center">
+    <span>Copyright Simon Goudreault 2023</span>
+  </footer>
+
+
+</main>
+<datalist id="Skills">
+  <option>Acting</option>
+  <option>Aim</option>
+  <option>Athletics</option>
+  <option>Bluff</option>
+  <option>Charisma</option>
+  <option>Concentration</option>
+  <option>Crafting</option>
+</datalist>
+<datalist id="rank">
+  <option>Amateur</option>
+  <option>Professional</option>
+  <option>Expert</option>
+</datalist>
+

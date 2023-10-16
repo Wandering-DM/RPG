@@ -1,0 +1,275 @@
+
+/*----------------- Main Layout ------------------*/
+
+/* A CSS Grid example using "grid-template-areas"
+  https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas
+*/
+main {
+  background-image: url(https://github.com/Wandering-DM/RPG/blob/main/sheet%20frame%20transparent%20copy.jpg?raw=true);
+  background-size: cover;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 250px 327px 250px;
+  grid-template-rows: 90px 200px 400px 1fr 20px;
+  grid-template-areas:"header header  header"
+                      "skill  common	attri"
+                      "skill  penta  inv"
+		                  "skill	misc	inv"
+                      "footer footer  footer";
+}
+
+/*----------------- GENERAL CSS ------------------*/
+
+button {
+  background: transparent;
+  border: 0;
+}
+.button[type=roll] {
+  background: transparent;
+}
+
+section {
+    padding: 5px;
+    border-style: none;
+}
+
+/* CSS Flexbox styling, used for adjusting how content inside section behaves */
+.f-col {
+  display: flex;
+  flex-direction: column;
+}
+.f-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nowrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.f-center {
+  align-items: center;
+  justify-content: center;
+}
+.f-penta{
+  display: flex;
+  align-items: start;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.f-end{
+  display: flex;
+  align-items: end;
+  padding: 5px;
+  flex-wrap: nowrap;
+}
+
+
+/*----------------- Text & Input styling -----------------*/
+
+@import url("https://https://fonts.google.com/specimen/Metal+Mania");
+
+
+/* these are for overwriting default CSS that comes from Roll20 */
+
+.charsheet * {
+  font-family: "Montserrat";
+}
+
+.charsheet h2{
+  text-align: center;
+  font-family: "Metal Mania";
+  padding: 0px 0px 0px 5px;
+  color: black;
+}
+
+.charsheet h3{
+  text-align: center;
+  font-family: "Metal Mania";
+  padding: 5px;
+  color: black;
+}
+
+.charsheet h4{
+  text-align: center;
+  font-family: "Metal Mania";
+  font-size: 1.2em;
+  padding: 4px 4px 4px 4px;
+  color: black;
+}
+
+.charsheet label{
+  margin: 3px;
+  padding: 3px 0 0 0;
+  font-family: "Metal Mania";
+  color: black;
+}
+
+.charsheet p{
+  margin: 3px 10px;
+  font-family: "Metal Mania";
+  color: black;
+}
+
+.charsheet input[type="text"], input[type="number"]{
+  margin: 2px 2px;
+}
+
+.charsheet input[type="checkbox"]{
+  margin: 2px 2px;
+}
+
+.charsheet textarea {
+  width: 95%;
+  height: 90%;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.charsheet .sheet-blank-button {
+border: 0px;
+background: none;
+background-color: transparent;
+box-shadow: none;
+content: "";
+width: 222px;
+}
+.ui-dialog .charsheet button[type=roll]:before  {
+  content: "";
+}
+button[type=roll] {
+  width: 40px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-image: url(https://github.com/Wandering-DM/RPG/blob/main/occult%20circle.png?raw=true);
+}
+button[type=roll]:hover {
+  background-position: center center;
+}
+
+
+/*------------- Section-specific CSS -------------*/
+
+.header {
+  grid-area: header;
+  background-image: url(https://github.com/Wandering-DM/RPG/blob/main/title.png?raw=true);
+  background-color: none;
+  flex-direction: column;
+}
+
+.attri {
+  grid-area: attri;
+  background-color: none;
+  justify-content: space-evenly;
+}
+
+.skill {
+  grid-area: skill;
+  background-color: none;
+}
+
+.common {
+  grid-area: common;
+  background-color: none;
+  justify-content: space-evenly;
+}
+
+.inv {
+  grid-area: inv;
+  background-color: none;
+}
+
+.misc {
+  grid-area: misc;
+  background-color: none;
+  height: 300px;
+}
+
+.pentagram {
+  grid-area: penta;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(https://github.com/Wandering-DM/RPG/blob/main/grey%20star%2025.png?raw=true);
+  height: 440px;
+  width: 327px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: lightgray;
+}
+
+/*------------------------------------*\
+  #ROLL TEMPLATES
+\*------------------------------------*/
+/* move the entire template left, to take up more of the chat window */
+.sheet-rolltemplate-default {
+  margin-left: 0px;
+}
+
+/* The template uses table for layout
+ The caption is the title bar - change colour and make text stand out.
+*/
+.sheet-rolltemplate-default caption {
+  background-color: #333;
+
+  color: #eee;
+  font-family: "Metal Mania", Helvetica, sans-serif;
+
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* make even rows darker shading, to stand out more */
+.sheet-rolltemplate-default tr:nth-child(even) {
+  background-color: #77777771;
+  font-family: "Metal Mania", Helvetica, sans-serif;
+  font-size: 1.2em;
+  color: black
+}
+
+
+/* Change height and position of each table cell */
+.sheet-rolltemplate-default td {
+  padding: 0px 0px 0px 0px;
+  line-height: 2em;
+  vertical-align: top;
+  text-align: center;
+}
+
+/* Enlarges Righthand Column by shrinking left when possible*/
+.sheet-rolltemplate-default td:first-child {
+  font-weight: bold;
+  text-align: center;
+  min-width: 10px;
+  padding-right: 0px;
+}
+
+/* change style of buttons to match title bar */
+.sheet-rolltemplate-default a[href^="!"],
+.sheet-rolltemplate-default a[href^="~"] {
+  border: none;
+  border-radius: 10px;
+  background-color: #181717;
+  color: #eee;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 2px;
+}
+
+.sheet-darkmode .characterviewer label {
+  color: black;
+}
+
